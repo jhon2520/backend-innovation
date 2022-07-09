@@ -1,14 +1,15 @@
-const port = 5000
+
 const dbConnection = require("./DB/dbConfig") 
 const app = require("./app")
+require("dotenv").config();
 
 
 const initApp = ()=>{
     try {
         
         dbConnection();
-        app.listen(port,()=>{
-            console.log(`Listen on ${port}`);
+        app.listen( process.env.PORT,()=>{
+            console.log(`Listen on ${ process.env.PORT}`);
         })
         
     } catch (error) {
